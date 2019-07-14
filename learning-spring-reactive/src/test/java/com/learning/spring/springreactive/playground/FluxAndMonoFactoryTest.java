@@ -48,9 +48,12 @@ public class FluxAndMonoFactoryTest {
   }
 
   @Test
-  public void testFluxRange(){
+  public void testFluxRange() {
 
+    Flux<Integer> integerFlux = Flux.range(2, 10);
 
+    StepVerifier.create(integerFlux.log()).expectNext(2, 3, 4, 5, 6, 7, 8, 9, 10, 11)
+        .verifyComplete();
 
   }
 
